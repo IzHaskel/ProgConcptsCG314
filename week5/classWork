@@ -1,0 +1,240 @@
+//commands during class
+// each section to be copied and pasted
+
+
+
+
+// bouncing along X
+
+float y;
+  float x;
+  
+  float diameter=50;
+  float radius= diameter/2;
+  float direction=2;
+  
+void setup(){
+  size(800,600);
+  x=width/2;
+  y=height/2;
+ 
+}
+//ball
+void draw(){
+ // if no background is added under the drawing, the previous shape will be shown!
+  background (242,29,83); 
+ 
+  fill(50,216,204);
+  ellipse(x,y,100,100);
+  
+  //defining speed use x++ or x+=#
+  x=x+direction;
+  
+ // if (x>width+radius){
+  // x= -radius;  //bouncing to the edge
+  
+  
+   if (x > width - radius || x < radius){    //bouncing between frames
+   
+   direction = - direction;}
+   
+ }
+ 
+ 
+ 
+ 
+ 
+ // bouncing randomly in direction bet X & Y (diagonally)
+ 
+ 
+ float x ;
+float y;
+  
+  float xDirection = 3;
+  float yDirection = 3;
+  float radius = 25;
+  
+void setup(){
+  size(640,480);
+  x=width/2;
+  y=height/2;
+ 
+}
+//ball
+void draw(){
+  //background (242,29,83); 
+ 
+  fill(50,216,204);
+  ellipse(x,y,100,100);
+  
+  x = x + xDirection;
+  y = y + yDirection;
+  
+   if (x > width - radius || x < radius){
+   
+   xDirection = - xDirection;
+ }
+ if (y > height - radius || y < radius){
+   
+   yDirection = - yDirection;
+ }
+ }
+ 
+ 
+ 
+ 
+ // stops on a defined place
+ 
+ 
+ 
+
+float startX = 100;
+float startY = 100;
+float stopX = 700;
+float stopY = 300;
+
+
+float x = startX;
+float y = startY;
+  
+  float pct = 0.0;
+ float step=0.005;
+  
+  
+void setup(){
+  size(800,600);
+
+}
+
+void draw(){
+  background (242); 
+ 
+  if (pct < 1.0) {
+    x = startX + ((stopX-startX)*pct);
+    y = startY + ((stopY-startY)*pct);
+    pct +=step;
+  }
+    
+  fill(50,216,204);
+  ellipse(x,y,100,100);
+  
+}
+ 
+ 
+ 
+ 
+ //shacking (random) and timing
+ 
+ float x = 100;
+float y = 100;
+  
+  
+ float step=3;
+  
+  
+  float diameter=50;
+  float radius= diameter/2;
+  float direction=2;
+  
+void setup(){
+  size(800,600);
+
+}
+
+void draw(){
+  background (242); 
+ 
+    
+  fill(50,216,204);
+  ellipse(x,y,100,100);
+  
+  x = x + random (-step, step); 
+  y = y + random (-step, step);
+  
+  x = constrain(x, 0, width);
+  y = constrain(y, 0, height);
+  
+  if (millis () > 6000) {
+    step = 3;
+  
+} else if (millis ()> 3000) {
+  step = 25;
+  
+  fill(0,0,255);
+  ellipse(x+100,y,100,100);    
+ } 
+}
+
+// up and down with sin cos tan
+
+float angle =  0.5;
+float offset;
+float scalar = 100;
+float speed = 0.05;
+  
+  
+void setup(){
+  size(800,600);
+  offset = height/2;
+ 
+}
+
+void draw(){
+  background (255); 
+ 
+ float y1 = offset + tan (angle) * scalar;
+ 
+ float y2 = offset + sin (angle) * scalar;
+ 
+ float y3 = offset + cos (angle) * scalar;
+ 
+ fill (255,0,0);
+ ellipse (width/2, y1, 50, 50);
+ 
+ ellipse (width/2, y2, 50, 50);
+ 
+ ellipse (width/2, y3, 50, 50);
+ angle+=speed;
+
+}
+
+
+
+//rotation on sin+cos
+
+
+
+float angle =  0.0;
+float xOffset;
+float yOffset;
+float scalar = 300;
+float speed = 0.05;
+  
+  
+void setup(){
+  size(800,600);
+  
+  
+xOffset = width /2;
+yOffset = height/2;
+ 
+}
+
+void draw(){
+  background (255); 
+ 
+ float x = xOffset + sin (angle) * scalar;
+ 
+ float y = yOffset + cos (angle) * scalar;
+ 
+ 
+ 
+ fill (255,0,0);
+ ellipse (x, y, 50, 50);
+ 
+ 
+ angle+=speed;
+
+}
+
+
